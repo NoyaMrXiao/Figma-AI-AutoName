@@ -1,7 +1,21 @@
 {
   "name": "figma-ai-naming",
   "version": "2.0.0",
-  "description": "AI Auto Naming for Figma",
+  "description": "AI-powered Figma plugin that automatically generates semantic, meaningful names for design elements. Supports single elements, batch naming, and intelligent frame structure analysis with visual understanding.",
+  "keywords": [
+    "figma",
+    "figma-plugin",
+    "ai",
+    "artificial-intelligence",
+    "naming",
+    "automation",
+    "productivity",
+    "design-tools",
+    "semantic-naming",
+    "batch-rename"
+  ],
+  "author": "",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "build": "esbuild src/code.ts --bundle --platform=browser --target=es2020 --outfile=code.js --format=iife && node scripts/build.js",
