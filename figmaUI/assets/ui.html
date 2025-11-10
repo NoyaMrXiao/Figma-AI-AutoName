@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AI Auto Naming</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      padding: 16px;
+      margin: 0;
+      background: #ffffff;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .section-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .status {
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .status.info {
+      background: #e3f2fd;
+      color: #1976d2;
+      border: 1px solid #bbdefb;
+    }
+    .status.warning {
+      background: #fff3e0;
+      color: #f57c00;
+      border: 1px solid #ffe0b2;
+    }
+    .status.success {
+      background: #e8f5e9;
+      color: #388e3c;
+      border: 1px solid #c8e6c9;
+    }
+    .status.error {
+      background: #ffebee;
+      color: #d32f2f;
+      border: 1px solid #ffcdd2;
+    }
+    .status.processing {
+      background: #f5f5f5;
+      color: #666;
+      border: 1px solid #e0e0e0;
+    }
+    .selected-element {
+      padding: 12px;
+      background: #f5f5f5;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+    }
+    .element-preview {
+      margin-top: 12px;
+      padding: 8px;
+      background: #fff;
+      border-radius: 4px;
+      border: 1px solid #e0e0e0;
+      max-height: 200px;
+      overflow: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .element-preview img {
+      max-width: 100%;
+      max-height: 180px;
+      display: block;
+      border-radius: 2px;
+    }
+    .element-preview-placeholder {
+      color: #999;
+      font-size: 11px;
+      text-align: center;
+      padding: 20px;
+    }
+    .element-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .element-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #333;
+      word-break: break-word;
+    }
+    .element-type {
+      font-size: 11px;
+      color: #666;
+      text-transform: capitalize;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    label {
+      font-size: 11px;
+      font-weight: 500;
+      color: #333;
+    }
+    input[type="text"],
+    input[type="password"] {
+      padding: 8px 12px;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #18a0fb;
+    }
+    .button-group {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    button {
+      flex: 1;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .primary {
+      background: #18a0fb;
+      color: white;
+    }
+    .primary:hover:not(:disabled) {
+      background: #1592e6;
+    }
+    .secondary {
+      background: #f0f0f0;
+      color: #333;
+    }
+    .secondary:hover:not(:disabled) {
+      background: #e0e0e0;
+    }
+    .api-key-toggle {
+      font-size: 11px;
+      color: #18a0fb;
+      cursor: pointer;
+      text-decoration: underline;
+      margin-top: 4px;
+    }
+    .api-key-toggle:hover {
+      color: #1592e6;
+    }
+    .hidden {
+      display: none;
+    }
+    .suggested-name {
+      margin-top: 8px;
+      padding: 8px;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #333;
+    }
+    .suggested-name-label {
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+    .suggested-name-value {
+      font-weight: 500;
+      word-break: break-word;
+    }
+    .button-description {
+      font-size: 10px;
+      color: #999;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .button-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="section">
+      <div class="section-title">Selected Element</div>
+      <div class="selected-element" id="selectedElement">
+        <div class="status warning">No element selected. Select an element in Figma to get started.</div>
+      </div>
+      <div class="element-preview hidden" id="elementPreview">
+        <div class="element-preview-placeholder" id="previewPlaceholder">Loading preview...</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="status info hidden" id="statusMessage"></div>
+      <div class="suggested-name hidden" id="suggestedName">
+        <div class="suggested-name-label" id="suggestedNameLabel">Suggested Name</div>
+        <div class="suggested-name-value" id="suggestedNameValue"></div>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <div class="button-wrapper">
+        <button class="primary" id="aiNameBtn" disabled>AI Auto Name</button>
+        <div class="button-description">Generate and automatically apply an AI-powered name for the selected element</div>
+      </div>
+      <button class="secondary hidden" id="applyNameBtn" disabled>Apply Name</button>
+    </div>
+
+    <div class="button-group">
+      <div class="button-wrapper">
+        <button class="primary" id="batchNameBtn" disabled>Batch Name Frames</button>
+        <div class="button-description">Generate and apply AI names for the selected frame and all its child frames at once</div>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button class="secondary" id="cancelBtn">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // Wait for DOM to load
+    document.addEventListener('DOMContentLoaded', () => {
+      const selectedElementEl = document.getElementById('selectedElement');
+      const elementPreviewEl = document.getElementById('elementPreview');
+      const statusMessageEl = document.getElementById('statusMessage');
+      const suggestedNameEl = document.getElementById('suggestedName');
+      const suggestedNameValueEl = document.getElementById('suggestedNameValue');
+      const aiNameBtn = document.getElementById('aiNameBtn');
+      const applyNameBtn = document.getElementById('applyNameBtn');
+      const batchNameBtn = document.getElementById('batchNameBtn');
+      const cancelBtn = document.getElementById('cancelBtn');
+
+      if (!selectedElementEl || !statusMessageEl || !aiNameBtn) {
+        console.error('UI elements not found');
+        return;
+      }
+
+      let currentSelectedNode = null;
+      let suggestedName = '';
+
+      // Default server URL
+      const defaultServerUrl = 'https://weapp-admin.ode.asia';
+
+      // Update selected element display
+      function updateSelectedElement(node, previewImage) {
+        currentSelectedNode = node;
+        
+        if (!node) {
+          selectedElementEl.innerHTML = '<div class="status warning">No element selected. Select an element in Figma to get started.</div>';
+          elementPreviewEl.classList.add('hidden');
+          aiNameBtn.disabled = true;
+          applyNameBtn.disabled = true;
+          batchNameBtn.disabled = true;
+          return;
+        }
+
+        const elementInfo = `
+          <div class="element-info">
+            <div class="element-name">${escapeHtml(node.name || 'Unnamed')}</div>
+            <div class="element-type">${escapeHtml(node.type || 'Unknown type')}</div>
+          </div>
+        `;
+        selectedElementEl.innerHTML = elementInfo;
+        
+        // Update preview image display
+        if (previewImage) {
+          elementPreviewEl.innerHTML = `<img src="${previewImage}" alt="Element preview" />`;
+          elementPreviewEl.classList.remove('hidden');
+        } else {
+          elementPreviewEl.classList.add('hidden');
+        }
+        
+        updateButtonState();
+        applyNameBtn.disabled = true;
+        suggestedNameEl.classList.add('hidden');
+      }
+
+      // Show status message
+      function showStatus(message, type = 'info') {
+        statusMessageEl.textContent = message;
+        statusMessageEl.className = `status ${type}`;
+        statusMessageEl.classList.remove('hidden');
+      }
+
+      // Hide status message
+      function hideStatus() {
+        statusMessageEl.classList.add('hidden');
+      }
+
+      // Escape HTML
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      // Listen for messages from main script
+      window.addEventListener('message', (event) => {
+        try {
+          const msg = event.data && event.data.pluginMessage;
+          
+          if (!msg) {
+            return;
+          }
+          
+          if (msg.type === 'selection-changed') {
+            console.log('Selection changed:', msg.node);
+            updateSelectedElement(msg.node, msg.previewImage);
+            hideStatus();
+            suggestedNameEl.classList.add('hidden');
+          } else if (msg.type === 'ai-naming-progress') {
+            showStatus(msg.message, 'processing');
+            aiNameBtn.disabled = true;
+          } else if (msg.type === 'ai-naming-success') {
+            suggestedName = msg.suggestedName;
+            suggestedNameValueEl.textContent = suggestedName;
+            suggestedNameEl.classList.remove('hidden');
+            showStatus('Name generated! Applying automatically...', 'processing');
+            aiNameBtn.disabled = true;
+            applyNameBtn.disabled = true;
+            
+            // Auto apply name
+            if (currentSelectedNode && suggestedName) {
+              parent.postMessage({ 
+                pluginMessage: { 
+                  type: 'apply-name',
+                  nodeId: currentSelectedNode.id,
+                  newName: suggestedName
+                } 
+              }, '*');
+            }
+          } else if (msg.type === 'ai-naming-error') {
+            showStatus(`Naming failed: ${msg.error}`, 'error');
+            aiNameBtn.disabled = false;
+            applyNameBtn.disabled = true;
+          } else if (msg.type === 'name-applied') {
+            showStatus('Name applied successfully', 'success');
+            aiNameBtn.disabled = false;
+            applyNameBtn.disabled = true;
+            // Keep suggested name displayed so user knows what was applied
+          } else if (msg.type === 'batch-naming-started') {
+            const plural = msg.totalCount > 1 ? 's' : '';
+            showStatus(`Starting batch naming for ${msg.totalCount} frame${plural}...`, 'processing');
+            aiNameBtn.disabled = true;
+            batchNameBtn.disabled = true;
+            suggestedNameEl.classList.add('hidden');
+          } else if (msg.type === 'batch-naming-progress') {
+            showStatus(`${msg.message}`, 'processing');
+          } else if (msg.type === 'batch-naming-completed') {
+            const successMsg = `Batch naming complete: ${msg.successCount} succeeded, ${msg.failCount} failed`;
+            showStatus(successMsg, msg.failCount === 0 ? 'success' : 'warning');
+            aiNameBtn.disabled = false;
+            batchNameBtn.disabled = false;
+          } else if (msg.type === 'batch-naming-error') {
+            showStatus(`Batch naming failed: ${msg.error}`, 'error');
+            aiNameBtn.disabled = false;
+            batchNameBtn.disabled = false;
+          }
+        } catch (error) {
+          console.error('Error processing message:', error);
+        }
+      });
+
+      // Trigger AI naming request
+      function triggerAINaming() {
+        if (!currentSelectedNode) {
+          showStatus('Please select an element first', 'warning');
+          return;
+        }
+
+        // If button is disabled (processing), don't execute
+        if (aiNameBtn.disabled) {
+          return;
+        }
+
+        showStatus('Generating name with AI...', 'processing');
+        aiNameBtn.disabled = true;
+        applyNameBtn.disabled = true;
+        
+        parent.postMessage({ 
+          pluginMessage: { 
+            type: 'ai-name-request',
+            serverUrl: defaultServerUrl,
+            apiKey: undefined,
+            nodeId: currentSelectedNode.id
+          } 
+        }, '*');
+      }
+
+      // AI naming button click event
+      aiNameBtn.addEventListener('click', triggerAINaming);
+
+      // Batch naming button click event
+      batchNameBtn.addEventListener('click', () => {
+        if (!currentSelectedNode) {
+          showStatus('Please select a frame or container first', 'warning');
+          return;
+        }
+
+        // If button is disabled (processing), don't execute
+        if (batchNameBtn.disabled) {
+          return;
+        }
+
+        showStatus('Preparing batch naming...', 'processing');
+        aiNameBtn.disabled = true;
+        batchNameBtn.disabled = true;
+        
+        parent.postMessage({ 
+          pluginMessage: { 
+            type: 'batch-name-request',
+            serverUrl: defaultServerUrl,
+            apiKey: undefined,
+            nodeId: currentSelectedNode.id
+          } 
+        }, '*');
+      });
+
+      // Apply name button click event
+      applyNameBtn.addEventListener('click', () => {
+        if (!suggestedName || !currentSelectedNode) {
+          return;
+        }
+
+        parent.postMessage({ 
+          pluginMessage: { 
+            type: 'apply-name',
+            nodeId: currentSelectedNode.id,
+            newName: suggestedName
+          } 
+        }, '*');
+      });
+
+      // Cancel button click event
+      cancelBtn.addEventListener('click', () => {
+        parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*');
+      });
+
+      // Update button state
+      function updateButtonState() {
+        const hasSelection = currentSelectedNode !== null;
+        aiNameBtn.disabled = !hasSelection;
+        
+        // Batch naming button: only enable when selected is FRAME or container node
+        const isFrameOrContainer = hasSelection && (
+          currentSelectedNode.type === 'FRAME' || 
+          currentSelectedNode.type === 'GROUP' ||
+          currentSelectedNode.type === 'COMPONENT' ||
+          currentSelectedNode.type === 'INSTANCE'
+        );
+        batchNameBtn.disabled = !isFrameOrContainer;
+      }
+
+      // Request initial selection state (delay to ensure UI is ready)
+      setTimeout(() => {
+        console.log('Requesting initial selection state');
+        parent.postMessage({ pluginMessage: { type: 'check-selection' } }, '*');
+      }, 200);
+
+      // Listen for keyboard shortcut Command+Shift+N (Mac) or Ctrl+Shift+N (Windows/Linux)
+      document.addEventListener('keydown', (event) => {
+        // Detect Command (Mac) or Ctrl (Windows/Linux) + Shift + N
+        const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+        const modifierKey = isMac ? event.metaKey : event.ctrlKey;
+        
+        if (modifierKey && event.shiftKey && event.key === 'n') {
+          event.preventDefault();
+          event.stopPropagation();
+          triggerAINaming();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

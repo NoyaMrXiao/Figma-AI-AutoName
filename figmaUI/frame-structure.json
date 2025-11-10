@@ -1,0 +1,592 @@
+{
+  "frame": {
+    "nodeId": "104:4081",
+    "name": "Verification",
+    "type": "FRAME",
+    "url": "https://www.figma.com/design/sCEMgCexGvmQOuLVGbuQG8/Web3-App-UI-KIT---Screen--Community-?node-id=104-4081&m=dev",
+    "styles": {
+      "backgroundColor": "#161719",
+      "layout": "flex",
+      "flexDirection": "column",
+      "gap": "16px",
+      "alignItems": "start",
+      "width": "360px",
+      "height": "full"
+    },
+    "children": [
+      {
+        "nodeId": "104:3608",
+        "name": "StatusBar",
+        "type": "COMPONENT",
+        "componentName": "StatusBar",
+        "props": {
+          "theme": "Light"
+        },
+        "styles": {
+          "padding": "16px",
+          "width": "360px",
+          "layout": "flex",
+          "alignItems": "center"
+        },
+        "children": [
+          {
+            "nodeId": "104:3619",
+            "type": "GROUP",
+            "styles": {
+              "layout": "flex",
+              "gap": "24px",
+              "alignItems": "center"
+            },
+            "children": [
+              {
+                "nodeId": "104:3620",
+                "type": "GROUP",
+                "styles": {
+                  "layout": "flex",
+                  "flexDirection": "column",
+                  "gap": "10px",
+                  "alignItems": "start"
+                },
+                "children": [
+                  {
+                    "nodeId": "104:3621",
+                    "name": "5:13 PM",
+                    "type": "TEXT",
+                    "content": "5:13 PM",
+                    "styles": {
+                      "height": "10px",
+                      "width": "50px"
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeId": "104:3622",
+                "type": "IMAGE",
+                "styles": {
+                  "height": "12.895px",
+                  "width": "70.947px"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "nodeId": "104:4083",
+        "type": "GROUP",
+        "styles": {
+          "layout": "flex",
+          "flexDirection": "column",
+          "gap": "24px",
+          "padding": "0px 16px 16px 16px",
+          "flexGrow": 1
+        },
+        "children": [
+          {
+            "nodeId": "104:4084",
+            "type": "GROUP",
+            "styles": {
+              "layout": "flex",
+              "flexDirection": "column",
+              "gap": "32px",
+              "alignItems": "center",
+              "justifyContent": "center"
+            },
+            "children": [
+              {
+                "nodeId": "104:4085",
+                "type": "GROUP",
+                "styles": {
+                  "layout": "flex",
+                  "flexDirection": "column",
+                  "gap": "32px",
+                  "alignItems": "center",
+                  "width": "100%"
+                },
+                "children": [
+                  {
+                    "nodeId": "104:4086",
+                    "type": "GROUP",
+                    "styles": {
+                      "layout": "flex",
+                      "flexDirection": "column",
+                      "gap": "24px",
+                      "alignItems": "start",
+                      "width": "100%"
+                    },
+                    "children": [
+                      {
+                        "nodeId": "104:4087",
+                        "type": "GROUP",
+                        "styles": {
+                          "layout": "flex",
+                          "flexDirection": "column",
+                          "gap": "8px",
+                          "alignItems": "start",
+                          "width": "100%"
+                        },
+                        "children": [
+                          {
+                            "nodeId": "104:4088",
+                            "type": "TEXT",
+                            "content": "Verification",
+                            "styles": {
+                              "fontFamily": "Clash_Grotesk:Semibold",
+                              "fontSize": "32px",
+                              "lineHeight": "40px",
+                              "color": "#f2f2fa",
+                              "textAlign": "center",
+                              "letterSpacing": "0.8px"
+                            }
+                          },
+                          {
+                            "nodeId": "104:4089",
+                            "type": "TEXT",
+                            "content": "Enter your verification code that we send you through your mail/number",
+                            "styles": {
+                              "fontFamily": "Clash_Grotesk:Regular",
+                              "fontSize": "16px",
+                              "lineHeight": "24px",
+                              "color": "#ffffff",
+                              "letterSpacing": "0.4px",
+                              "width": "292px"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "nodeId": "104:4090",
+                        "type": "GROUP",
+                        "styles": {
+                          "layout": "flex",
+                          "gap": "10px",
+                          "alignItems": "start"
+                        },
+                        "children": [
+                          {
+                            "nodeId": "104:4091",
+                            "type": "INPUT_BOX",
+                            "styles": {
+                              "border": "0.5px solid rgba(242,242,250,0.3)",
+                              "borderRadius": "4px",
+                              "width": "36px",
+                              "height": "36px"
+                            }
+                          },
+                          {
+                            "nodeId": "104:4092",
+                            "type": "INPUT_BOX",
+                            "content": "2",
+                            "styles": {
+                              "border": "1px solid #6262d9",
+                              "borderRadius": "4px",
+                              "width": "36px",
+                              "height": "36px"
+                            }
+                          },
+                          {
+                            "nodeId": "104:4093",
+                            "type": "INPUT_BOX",
+                            "styles": {
+                              "border": "0.5px solid rgba(242,242,250,0.3)",
+                              "borderRadius": "4px",
+                              "width": "36px",
+                              "height": "36px"
+                            }
+                          },
+                          {
+                            "nodeId": "104:4094",
+                            "type": "INPUT_BOX",
+                            "styles": {
+                              "border": "0.5px solid rgba(242,242,250,0.3)",
+                              "borderRadius": "4px",
+                              "width": "36px",
+                              "height": "36px"
+                            }
+                          },
+                          {
+                            "nodeId": "104:4095",
+                            "type": "INPUT_BOX",
+                            "styles": {
+                              "border": "0.5px solid rgba(242,242,250,0.3)",
+                              "borderRadius": "4px",
+                              "width": "36px",
+                              "height": "36px"
+                            }
+                          },
+                          {
+                            "nodeId": "104:4096",
+                            "type": "TEXT",
+                            "content": "2",
+                            "styles": {
+                              "position": "absolute",
+                              "left": "13px",
+                              "top": "6.11px",
+                              "fontFamily": "Clash_Grotesk:Regular",
+                              "fontSize": "16px",
+                              "lineHeight": "24px",
+                              "color": "#f2f2fa"
+                            }
+                          },
+                          {
+                            "nodeId": "104:4097",
+                            "type": "TEXT",
+                            "content": "4",
+                            "styles": {
+                              "position": "absolute",
+                              "left": "59px",
+                              "top": "6.11px",
+                              "fontFamily": "Clash_Grotesk:Regular",
+                              "fontSize": "16px",
+                              "lineHeight": "24px",
+                              "color": "#f2f2fa"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "nodeId": "104:4098",
+                    "type": "GROUP",
+                    "styles": {
+                      "layout": "flex",
+                      "gap": "12px",
+                      "alignItems": "start",
+                      "justifyContent": "center"
+                    },
+                    "children": [
+                      {
+                        "nodeId": "104:4099",
+                        "type": "TEXT",
+                        "content": "+91 6202948676",
+                        "styles": {
+                          "fontFamily": "Clash_Grotesk:Regular",
+                          "fontSize": "16px",
+                          "lineHeight": "24px",
+                          "color": "#ffffff",
+                          "letterSpacing": "0.4px"
+                        },
+                        "textParts": [
+                          {
+                            "text": " ",
+                            "fontWeight": "Regular"
+                          },
+                          {
+                            "text": "+91 6202948676",
+                            "fontWeight": "Medium"
+                          }
+                        ]
+                      },
+                      {
+                        "nodeId": "104:4100",
+                        "type": "BUTTON",
+                        "styles": {
+                          "backgroundColor": "rgba(22,23,25,0.8)",
+                          "border": "0.2px solid #f2f2fa",
+                          "borderRadius": "4px",
+                          "padding": "4px"
+                        },
+                        "children": [
+                          {
+                            "nodeId": "104:2886",
+                            "name": "IconPack",
+                            "type": "COMPONENT",
+                            "componentName": "IconPack",
+                            "props": {
+                              "iconName": "Edit"
+                            },
+                            "styles": {
+                              "width": "16px",
+                              "height": "16px"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "nodeId": "104:4102",
+                "type": "GROUP",
+                "styles": {
+                  "layout": "flex",
+                  "flexDirection": "column",
+                  "gap": "6px",
+                  "alignItems": "start"
+                },
+                "children": [
+                  {
+                    "nodeId": "104:4103",
+                    "name": "Button",
+                    "type": "BUTTON",
+                    "content": "Verify",
+                    "styles": {
+                      "padding": "14px 10px",
+                      "borderRadius": "12px",
+                      "boxShadow": "0px 4px 4px 0px rgba(0,0,0,0.25)",
+                      "width": "328px",
+                      "backgroundColor": "transparent"
+                    },
+                    "children": [
+                      {
+                        "nodeId": "I104:4103;155:1870",
+                        "type": "TEXT",
+                        "content": "Verify",
+                        "styles": {
+                          "fontFamily": "Clash_Grotesk:Semibold",
+                          "fontSize": "17px",
+                          "lineHeight": "25.5px",
+                          "color": "#f2f2fa",
+                          "textAlign": "center",
+                          "letterSpacing": "0.425px"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "nodeId": "104:4104",
+                    "type": "TEXT",
+                    "content": "Resend Code  1:24",
+                    "styles": {
+                      "fontFamily": "Clash_Grotesk:Medium",
+                      "fontSize": "16px",
+                      "lineHeight": "24px",
+                      "color": "#7878fa",
+                      "letterSpacing": "0.4px",
+                      "width": "292px"
+                    },
+                    "textParts": [
+                      {
+                        "text": "Resend Code  ",
+                        "color": "#7878fa"
+                      },
+                      {
+                        "text": "1:24",
+                        "color": "#f2f2fa",
+                        "letterSpacing": "1.2px"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "components": {
+    "StatusBar": {
+      "nodeId": "104:3608",
+      "props": {
+        "theme": {
+          "type": "enum",
+          "values": ["Dark", "Light"],
+          "default": "Dark"
+        }
+      }
+    },
+    "Star": {
+      "nodeId": "104:2862",
+      "props": {
+        "starStatus": {
+          "type": "enum",
+          "values": ["Half", "Empty", "Full"],
+          "default": "Half"
+        }
+      }
+    },
+    "BellIcon": {
+      "nodeId": "104:2857",
+      "props": {
+        "type": {
+          "type": "enum",
+          "values": ["Outline", "Fill"],
+          "default": "Fill"
+        }
+      }
+    },
+    "Theme": {
+      "nodeId": "104:2852",
+      "props": {
+        "type": {
+          "type": "enum",
+          "values": ["Outline", "Fill"],
+          "default": "Fill"
+        }
+      }
+    },
+    "PaymentsCards": {
+      "nodeId": "104:2847",
+      "props": {
+        "type": {
+          "type": "enum",
+          "values": ["Fill", "Outline"],
+          "default": "Outline"
+        }
+      }
+    },
+    "SocialMedia": {
+      "nodeId": "104:2839",
+      "props": {
+        "icon": {
+          "type": "enum",
+          "values": ["Messager", "whatsapp", "Telegram"],
+          "default": "Messager"
+        }
+      }
+    },
+    "Passord": {
+      "nodeId": "104:2781",
+      "props": {
+        "type": {
+          "type": "enum",
+          "values": ["Fill", "Outline"],
+          "default": "Outline"
+        }
+      }
+    },
+    "Setting": {
+      "nodeId": "104:2776",
+      "props": {
+        "type": {
+          "type": "enum",
+          "values": ["Fill", "Unfilled"],
+          "default": "Fill"
+        }
+      }
+    },
+    "Deposit": {
+      "nodeId": "104:2761",
+      "props": {
+        "name": {
+          "type": "enum",
+          "values": ["Deposit", "Withdraw", "Send", "Convert", "Transaction", "Request"],
+          "default": "Withdraw"
+        }
+      }
+    },
+    "Icon1": {
+      "nodeId": "104:230",
+      "props": {
+        "property1": {
+          "type": "enum",
+          "values": ["Copy", "Variant2"],
+          "default": "Copy"
+        }
+      }
+    },
+    "Icon": {
+      "nodeId": "104:2786",
+      "props": {
+        "icon": {
+          "type": "enum",
+          "values": ["cross", "heart", "info", "lock", "Back", "Terms&Condition", "Privacy", "Contact-Support", "More", "LogOut", "User", "Copy", "Deposit", "Setting", "Articles", "Search", "Heart-filled", "Share"],
+          "default": "info"
+        }
+      }
+    },
+    "Password": {
+      "nodeId": "104:2751",
+      "props": {
+        "show": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "IconPack": {
+      "nodeId": "104:2869",
+      "props": {
+        "iconName": {
+          "type": "enum",
+          "values": ["Bell-icon", "Icon", "Password", "Star", "Edit", "Cards", "Theme", "Social Media", "Add"],
+          "default": "Password"
+        }
+      }
+    }
+  },
+  "designTokens": {
+    "colors": {
+      "white": "#F2F2FA",
+      "snowWhite": "#F2F2FA",
+      "primary": "#7878FA",
+      "background": "#161719",
+      "border": {
+        "default": "rgba(242,242,250,0.3)",
+        "active": "#6262d9",
+        "light": "#f2f2fa"
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "regular": "Clash_Grotesk:Regular",
+        "medium": "Clash_Grotesk:Medium",
+        "semibold": "Clash_Grotesk:Semibold"
+      },
+      "fontSizes": {
+        "small": "16px",
+        "medium": "17px",
+        "large": "32px"
+      },
+      "lineHeights": {
+        "small": "24px",
+        "medium": "25.5px",
+        "large": "40px"
+      }
+    },
+    "spacing": {
+      "xs": "6px",
+      "sm": "8px",
+      "md": "10px",
+      "lg": "12px",
+      "xl": "16px",
+      "2xl": "24px",
+      "3xl": "32px"
+    },
+    "borderRadius": {
+      "sm": "4px",
+      "md": "12px"
+    }
+  },
+  "assets": {
+    "images": [
+      "/Applications/ode项目/figma脚本_副本/assets/0046d9530d468447289e413aeeb24f1a48692aeb.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/944870f77f2691747b452bbd4c229209a2332fde.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/defa2ebb36f4baeedc3ca0b91f52b6cfa34972fc.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/7bd1c5a6e0000d6f3c0098864e1a77ef606e9039.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/757043be72ce5cc9ef01de0a801603a311f6e0ba.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/1536cb9c2842c1881e3af79b1a55760490d30f25.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/da948c24e4d9f6b9a21bcc9005c126e7a182e262.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/e66bc13587974ecda2b70f6d36ca512fc3814433.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/4c1123386f7ba27ecbbe193c464b6880eb193053.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/02a5605adc4b8ca0252f258bef4c384c09cf6f63.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/518fe424b8cfde26b68c0b5148483935301bd61b.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/7cbff5d14f8f3116ded7923afe16294279632e5e.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/20819b79bcad216a15d7a45b1d5adba2b44a1354.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/8ce32ba1b24df80ce8f4ab3f97c98e767ef9906c.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/c6aeae33e9c214c3f932f0fa97d78391c532a82d.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/94ba6ba5fea1d7fc7d769a373b08adcf0e662bbc.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/17c7d5cd4f94cb09e5e02fc840e56ff2e0016c7b.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/db7bb010cc3cc9c6aa19d14e8d7196c23033057d.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/a454c8391295b57906f6e4c4d410af1e1c445ed4.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/dd7e3442e5ade881a9a325069ca837105bb6ebb2.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/9672230bd123f785fea8b63a55a6e097ad99c9df.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/c0f018f9b6c4e71ab3dd8cb93158edd678f81b8e.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/613f5720f462634351e99d79acc6bfa14c2861af.svg",
+      "/Applications/ode项目/figma脚本_副本/assets/4bd3a02388843ba0651e4c78f8a160866e7364f6.svg"
+    ]
+  },
+  "metadata": {
+    "frameName": "Verification",
+    "frameId": "104:4081",
+    "designSystem": "Web3-App-UI-KIT",
+    "screen": "Community",
+    "extractedAt": "2024"
+  }
+}
+
+

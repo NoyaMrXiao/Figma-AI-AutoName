@@ -1,0 +1,16 @@
+{
+  "name": "AI Auto Naming",
+  "id": "1567838615160880097",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "assets/ui.html",
+  "editorType": ["figma"],
+  "networkAccess": {
+    "allowedDomains": ["https://weapp-admin.ode.asia"],
+    "devAllowedDomains": [
+      "http://localhost:3000"
+    ]
+  },
+  "documentAccess": "dynamic-page"
+}
+
