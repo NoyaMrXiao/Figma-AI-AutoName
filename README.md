@@ -12,6 +12,25 @@
 
 **Figma AI Auto Naming** is an intelligent Figma plugin that uses AI technology to automatically generate semantic, meaningful names for your design elements. Save time and maintain consistency across your design files with AI-powered naming suggestions.
 
+## 🎬 Demo
+
+Watch the plugin in action:
+
+### MP4 Format (Recommended)
+
+<video width="100%" controls>
+  <source src="figmaUI/docs/录屏.mp4" type="video/mp4">
+  Your browser does not support the video tag. Please <a href="figmaUI/docs/录屏.mp4">download the video</a> to view.
+</video>
+
+📥 [Download MP4 Video](figmaUI/docs/录屏.mp4)
+
+### GIF Format
+
+![Plugin Demo](figmaUI/docs/录屏.gif)
+
+📥 [Download GIF](figmaUI/docs/录屏.gif)
+
 ### ✨ Key Features
 
 - 🤖 **AI-Powered Naming**: Automatically generates semantic names based on element type, description, and context
@@ -134,6 +153,7 @@ MIT License
 ## 📋 目录
 
 - [项目简介](#项目简介)
+- [演示视频](#演示视频)
 - [功能特性](#功能特性)
 - [项目结构](#项目结构)
 - [快速开始](#快速开始)
@@ -148,6 +168,25 @@ Figma AI Auto Naming 是一个智能的 Figma 插件，通过 AI 技术帮助设
 
 - **Figma 插件前端** (`figmaUI/`): 运行在 Figma 中的插件界面和逻辑
 - **AI 服务后端** (`server/`): 提供 AI 命名服务的 Express 服务器
+
+## 🎬 演示视频
+
+查看插件使用演示：
+
+### MP4 格式（推荐）
+
+<video width="100%" controls>
+  <source src="figmaUI/docs/录屏.mp4" type="video/mp4">
+  您的浏览器不支持视频播放。请<a href="figmaUI/docs/录屏.mp4">下载视频</a>查看。
+</video>
+
+📥 [下载 MP4 视频](figmaUI/docs/录屏.mp4)
+
+### GIF 格式
+
+![插件演示](figmaUI/docs/录屏.gif)
+
+📥 [下载 GIF 动图](figmaUI/docs/录屏.gif)
 
 ## ✨ 功能特性
 
