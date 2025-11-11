@@ -1,107 +1,107 @@
-# Figma 插件提交 - 安全信息
+# Figma Plugin Submission - Security Information
 
-本文档提供了在 Figma 插件提交表单中需要填写的安全相关信息。您可以直接复制以下内容到相应的表单字段中。
-
----
-
-## 1. 安全漏洞管理流程
-
-**问题**: 您是否有公开记录的流程来管理您所托管服务中的安全漏洞？
-
-**回答**（可直接复制）:
-
-是的，我们建立了公开的安全漏洞管理流程。我们通过以下方式管理安全漏洞：
-
-**安全联系邮箱**: 3090699578xx@gmail.com
-
-**漏洞报告流程**:
-1. 安全研究人员和社区成员可以通过 3090699578xx@gmail.com 报告安全漏洞
-2. 我们承诺在收到报告后 48 小时内进行初步响应
-3. 根据漏洞严重程度，我们会在 7-60 天内提供修复或缓解措施
-
-**响应时间承诺**:
-- Critical（严重）: 24 小时内开始调查，7 天内提供修复
-- High（高）: 72 小时内开始调查，14 天内提供修复
-- Medium（中）: 7 天内开始调查，30 天内提供修复
-- Low（低）: 14 天内开始调查，60 天内提供修复
-
-**处理流程**:
-1. 接收与确认（48 小时内）
-2. 评估与分类
-3. 调查与分析
-4. 修复开发
-5. 测试与验证
-6. 部署与发布
-7. 披露与致谢（经报告者同意）
-
-我们遵循负责任的披露原则，在漏洞修复之前不会公开披露漏洞详情。我们鼓励报告者在漏洞修复后再公开披露。
-
-**详细文档**: 完整的安全漏洞管理流程文档可在项目仓库的 `SECURITY.md` 文件中查看。
-
-**公开文档链接**:
-- GitHub 仓库: https://github.com/NoyaMrXiao/Figma-AI-AutoName
-- 安全文档: https://github.com/NoyaMrXiao/Figma-AI-AutoName/figmaUI/SECURITY.md
+This document provides security-related information required for the Figma plugin submission form. You can directly copy the following content into the corresponding form fields.
 
 ---
 
-## 2. 安全标准认证
+## 1. Security Vulnerability Management Process
 
-**问题**: 您是否获得了任何相关的安全标准认证（例如 SOC 2、PCI DSS、HITRUST、ISO27001 和 SSAE 18）？
+**Question**: Do you have a publicly documented process for managing security vulnerabilities in your hosted services?
 
-**回答**（可直接复制）:
+**Answer** (Ready to copy):
 
-目前，我们的服务尚未获得正式的安全标准认证（如 ISO 27001、SOC 2、PCI DSS、HITRUST 或 SSAE 18）。作为一个小型开发团队，我们正在评估获取正式安全认证的可行性，并计划在未来根据业务发展需要考虑获取相关认证。
+Yes, we have established a publicly documented security vulnerability management process. We manage security vulnerabilities through the following methods:
 
-**当前安全实践**:
+**Security Contact Email**: 3090699578xx@gmail.com
 
-虽然我们尚未获得正式认证，但我们积极遵循行业认可的安全最佳实践：
+**Vulnerability Reporting Process**:
+1. Security researchers and community members can report security vulnerabilities to 3090699578xx@gmail.com
+2. We commit to providing an initial response within 48 hours of receiving a report
+3. Depending on the severity of the vulnerability, we will provide fixes or mitigation measures within 7-60 days
 
-1. **数据安全**:
-   - 所有敏感信息（如 API Key）通过环境变量管理，绝不硬编码
-   - 所有 API 通信使用 HTTPS/TLS 加密
-   - 实施数据最小化原则
+**Response Time Commitment**:
+- Critical: Investigation begins within 24 hours, fix provided within 7 days
+- High: Investigation begins within 72 hours, fix provided within 14 days
+- Medium: Investigation begins within 7 days, fix provided within 30 days
+- Low: Investigation begins within 14 days, fix provided within 60 days
 
-2. **访问控制**:
-   - API Key 存储在服务器端环境变量中，客户端无法访问
-   - Figma 插件配置了域名白名单，限制只能访问授权的后端服务
-   - 所有 API 请求都经过严格的参数验证
+**Handling Process**:
+1. Receipt and Confirmation (within 48 hours)
+2. Assessment and Classification
+3. Investigation and Analysis
+4. Fix Development
+5. Testing and Verification
+6. Deployment and Release
+7. Disclosure and Acknowledgment (with reporter's consent)
 
-3. **基础设施安全**:
-   - 定期更新依赖包以修复已知安全漏洞
-   - 设置合理的请求体大小限制（50MB）
-   - 实施适当的错误处理机制，避免泄露敏感信息
+We follow responsible disclosure principles and will not publicly disclose vulnerability details before fixes are implemented. We encourage reporters to disclose publicly after vulnerabilities are fixed.
 
-4. **代码安全**:
-   - 使用 TypeScript 进行类型检查
-   - 对所有用户输入进行验证和清理
-   - 正确配置 CORS 策略
-   - 遵循 OWASP Top 10 安全编码最佳实践
+**Detailed Documentation**: Complete security vulnerability management process documentation can be found in the `SECURITY.md` file in the project repository.
 
-5. **安全监控与响应**:
-   - 提供健康检查端点用于服务监控
-   - 实施错误日志记录和监控
-   - 建立了安全漏洞报告和响应流程
-
-**未来计划**:
-
-根据业务发展需要，我们计划：
-- 短期：完善安全文档和流程，实施更严格的安全监控
-- 中期：评估获取 ISO 27001 认证的可行性，考虑进行 SOC 2 Type I 审计
-- 长期：根据业务规模，考虑获取正式的安全认证
-
-**详细文档**: 完整的安全标准认证说明可在项目仓库的 `SECURITY_CERTIFICATIONS.md` 文件中查看。
-
-**公开文档链接**:
-- GitHub 仓库: https://github.com/NoyaMrXiao/Figma-AI-AutoName
-- 安全认证文档: https://github.com/NoyaMrXiao/Figma-AI-AutoName/figmaUI/SECURITY_CERTIFICATIONS.md
+**Public Documentation Links**:
+- GitHub Repository: https://github.com/NoyaMrXiao/Figma-AI-AutoName
+- Security Documentation: https://github.com/NoyaMrXiao/Figma-AI-AutoName/blob/main/figmaUI/SECURITY.md
 
 ---
 
-## 联系方式
+## 2. Security Standards and Certifications
 
-如有任何安全相关问题，请通过以下方式联系我们：
+**Question**: Have you obtained any relevant security standard certifications (e.g., SOC 2, PCI DSS, HITRUST, ISO27001, and SSAE 18)?
 
-- **安全邮箱**: 3090699578xx@gmail.com
-- **一般咨询**: 请通过 Figma 社区插件页面联系我们
+**Answer** (Ready to copy):
+
+Currently, our services have not obtained formal security standard certifications (such as ISO 27001, SOC 2, PCI DSS, HITRUST, or SSAE 18). As a small development team, we are evaluating the feasibility of obtaining formal security certifications and plan to consider obtaining relevant certifications in the future based on business development needs.
+
+**Current Security Practices**:
+
+Although we have not obtained formal certifications, we actively follow industry-recognized security best practices:
+
+1. **Data Security**:
+   - All sensitive information (such as API Keys) is managed through environment variables and never hardcoded
+   - All API communications use HTTPS/TLS encryption
+   - Implement data minimization principles
+
+2. **Access Control**:
+   - API Keys are stored in server-side environment variables and are not accessible to clients
+   - The Figma plugin is configured with a domain whitelist, restricting access to authorized backend services only
+   - All API requests undergo strict parameter validation
+
+3. **Infrastructure Security**:
+   - Regularly update dependency packages to fix known security vulnerabilities
+   - Set reasonable request body size limits (50MB)
+   - Implement appropriate error handling mechanisms to avoid leaking sensitive information
+
+4. **Code Security**:
+   - Use TypeScript for type checking
+   - Validate and sanitize all user inputs
+   - Properly configure CORS policies
+   - Follow OWASP Top 10 secure coding best practices
+
+5. **Security Monitoring and Response**:
+   - Provide health check endpoints for service monitoring
+   - Implement error logging and monitoring
+   - Established security vulnerability reporting and response process
+
+**Future Plans**:
+
+Based on business development needs, we plan to:
+- Short-term: Improve security documentation and processes, implement stricter security monitoring
+- Medium-term: Evaluate the feasibility of obtaining ISO 27001 certification, consider conducting SOC 2 Type I audits
+- Long-term: Consider obtaining formal security certifications based on business scale
+
+**Detailed Documentation**: Complete security standards and certifications documentation can be found in the `SECURITY_CERTIFICATIONS.md` file in the project repository.
+
+**Public Documentation Links**:
+- GitHub Repository: https://github.com/NoyaMrXiao/Figma-AI-AutoName
+- Security Certifications Documentation: https://github.com/NoyaMrXiao/Figma-AI-AutoName/blob/main/figmaUI/SECURITY_CERTIFICATIONS.md
+
+---
+
+## Contact Information
+
+For any security-related questions, please contact us through the following channels:
+
+- **Security Email**: 3090699578xx@gmail.com
+- **General Inquiries**: Please contact us through the Figma Community plugin page
 
 ---

@@ -1,156 +1,155 @@
-# 安全标准认证说明
+# Security Standards and Certifications
 
-## 概述
+## Overview
 
-本文档说明 AI Auto Naming Figma 插件及其后端服务在安全标准认证方面的现状和遵循的安全实践。
+This document describes the current status of security standard certifications and security practices followed by the AI Auto Naming Figma plugin and its backend services.
 
-## 当前认证状态
+## Current Certification Status
 
-### 正式认证
+### Formal Certifications
 
-目前，我们的服务尚未获得以下正式的安全标准认证：
+Currently, our services have not obtained the following formal security standard certifications:
 
-- **ISO 27001**: 信息安全管理体系（ISMS）认证 - 未获得
-- **SOC 2**: 服务组织控制 2 型报告 - 未获得
-- **PCI DSS**: 支付卡行业数据安全标准 - 不适用（我们不处理支付卡数据）
-- **HITRUST**: 健康信息信任联盟认证 - 不适用（我们不处理健康信息）
-- **SSAE 18**: 鉴证业务准则声明第 18 号 - 未获得
+- **ISO 27001**: Information Security Management System (ISMS) certification - Not obtained
+- **SOC 2**: Service Organization Control Type 2 report - Not obtained
+- **PCI DSS**: Payment Card Industry Data Security Standard - Not applicable (we do not process payment card data)
+- **HITRUST**: Health Information Trust Alliance certification - Not applicable (we do not process health information)
+- **SSAE 18**: Statement on Standards for Attestation Engagements No. 18 - Not obtained
 
-### 认证计划
+### Certification Plans
 
-作为一个小型开发团队，我们目前正在评估获取正式安全认证的可行性。我们认识到安全认证的重要性，并计划在未来根据业务发展需要，考虑获取以下认证：
+As a small development team, we are currently evaluating the feasibility of obtaining formal security certifications. We recognize the importance of security certifications and plan to consider obtaining the following certifications in the future based on business development needs:
 
-- **ISO 27001**: 作为长期目标，我们计划建立符合 ISO 27001 标准的信息安全管理体系
-- **SOC 2 Type II**: 如果服务规模扩大，我们将考虑进行 SOC 2 审计
+- **ISO 27001**: As a long-term goal, we plan to establish an Information Security Management System that complies with ISO 27001 standards
+- **SOC 2 Type II**: If the service scale expands, we will consider conducting SOC 2 audits
 
-## 遵循的安全实践
+## Security Practices Followed
 
-虽然我们尚未获得正式的安全认证，但我们积极遵循行业认可的安全最佳实践和标准：
+Although we have not obtained formal certifications, we actively follow industry-recognized security best practices and standards:
 
-### 1. 数据安全
+### 1. Data Security
 
-- **环境变量管理**: 所有敏感信息（如 API Key）通过环境变量管理，绝不硬编码在代码中
-- **代码仓库安全**: `.env` 文件已添加到 `.gitignore`，确保敏感信息不会被提交到版本控制系统
-- **数据传输加密**: 所有 API 通信使用 HTTPS/TLS 加密
-- **数据最小化**: 只收集和处理提供服务所必需的数据
+- **Environment Variable Management**: All sensitive information (such as API Keys) is managed through environment variables and never hardcoded in code
+- **Code Repository Security**: `.env` files have been added to `.gitignore` to ensure sensitive information is not committed to version control systems
+- **Data Transmission Encryption**: All API communications use HTTPS/TLS encryption
+- **Data Minimization**: Only collect and process data necessary to provide services
 
-### 2. 访问控制
+### 2. Access Control
 
-- **API Key 安全**: OpenAI API Key 存储在服务器端环境变量中，客户端无法访问
-- **网络访问限制**: Figma 插件配置了允许的域名白名单（`networkAccess.allowedDomains`），限制只能访问授权的后端服务
-- **请求验证**: 所有 API 请求都经过严格的参数验证和类型检查
+- **API Key Security**: OpenAI API Keys are stored in server-side environment variables and are not accessible to clients
+- **Network Access Restrictions**: The Figma plugin is configured with an allowed domain whitelist (`networkAccess.allowedDomains`), restricting access to authorized backend services only
+- **Request Validation**: All API requests undergo strict parameter validation and type checking
 
-### 3. 基础设施安全
+### 3. Infrastructure Security
 
-- **依赖管理**: 定期更新依赖包以修复已知安全漏洞
-- **请求大小限制**: 设置合理的请求体大小限制（50MB）以防止资源耗尽攻击
-- **错误处理**: 实施适当的错误处理机制，避免泄露敏感信息
-- **日志记录**: 记录必要的操作日志，同时避免记录敏感信息
+- **Dependency Management**: Regularly update dependency packages to fix known security vulnerabilities
+- **Request Size Limits**: Set reasonable request body size limits (50MB) to prevent resource exhaustion attacks
+- **Error Handling**: Implement appropriate error handling mechanisms to avoid leaking sensitive information
+- **Logging**: Record necessary operation logs while avoiding logging sensitive information
 
-### 4. 代码安全
+### 4. Code Security
 
-- **类型安全**: 使用 TypeScript 进行类型检查，减少运行时错误
-- **输入验证**: 对所有用户输入进行验证和清理
-- **CORS 配置**: 正确配置跨域资源共享（CORS）策略
-- **安全编码实践**: 遵循 OWASP Top 10 安全编码最佳实践
+- **Type Safety**: Use TypeScript for type checking to reduce runtime errors
+- **Input Validation**: Validate and sanitize all user inputs
+- **CORS Configuration**: Properly configure Cross-Origin Resource Sharing (CORS) policies
+- **Secure Coding Practices**: Follow OWASP Top 10 secure coding best practices
 
-### 5. 安全监控与响应
+### 5. Security Monitoring and Response
 
-- **健康检查端点**: 提供 `/health` 端点用于服务健康监控
-- **错误监控**: 实施错误日志记录和监控
-- **安全漏洞管理**: 建立了安全漏洞报告和响应流程（详见 [SECURITY.md](./SECURITY.md)）
+- **Health Check Endpoint**: Provide `/health` endpoint for service health monitoring
+- **Error Monitoring**: Implement error logging and monitoring
+- **Security Vulnerability Management**: Established security vulnerability reporting and response process (see [SECURITY.md](./SECURITY.md) for details)
 
-### 6. 第三方服务安全
+### 6. Third-Party Service Security
 
-- **API 服务商**: 我们使用 OpenAI 的 API 服务，其本身遵循严格的安全标准
-- **依赖审查**: 定期审查和更新第三方依赖库
-- **服务提供商评估**: 在选择第三方服务提供商时，我们会评估其安全实践
+- **API Service Provider**: We use OpenAI's API services, which themselves follow strict security standards
+- **Dependency Review**: Regularly review and update third-party dependency libraries
+- **Service Provider Evaluation**: When selecting third-party service providers, we evaluate their security practices
 
-## 安全控制措施
+## Security Control Measures
 
-### 技术控制
+### Technical Controls
 
-1. **加密传输**: 所有数据传输使用 TLS 1.2 或更高版本
-2. **参数验证**: 严格的输入验证和类型检查
-3. **请求限制**: 请求体大小限制和批量请求数量限制
-4. **错误处理**: 安全的错误处理，不泄露敏感信息
+1. **Encrypted Transmission**: All data transmission uses TLS 1.2 or higher
+2. **Parameter Validation**: Strict input validation and type checking
+3. **Request Limits**: Request body size limits and batch request quantity limits
+4. **Error Handling**: Secure error handling that does not leak sensitive information
 
-### 管理控制
+### Administrative Controls
 
-1. **安全政策**: 制定了安全漏洞管理流程
-2. **访问控制**: 限制对敏感信息的访问
-3. **变更管理**: 代码变更通过版本控制系统管理
-4. **文档管理**: 维护安全相关文档
+1. **Security Policy**: Established security vulnerability management process
+2. **Access Control**: Restrict access to sensitive information
+3. **Change Management**: Code changes are managed through version control systems
+4. **Documentation Management**: Maintain security-related documentation
 
-### 运营控制
+### Operational Controls
 
-1. **监控**: 服务健康状态监控
-2. **日志**: 操作日志记录
-3. **备份**: 代码和配置的版本控制备份
-4. **响应**: 安全事件响应流程
+1. **Monitoring**: Service health status monitoring
+2. **Logging**: Operation log recording
+3. **Backup**: Version control backup of code and configuration
+4. **Response**: Security incident response process
 
-## 合规性说明
+## Compliance Statement
 
-### 数据隐私
+### Data Privacy
 
-- **数据收集**: 我们只收集和处理提供服务所必需的数据（Figma 元素信息）
-- **数据存储**: 数据在 API 调用过程中临时处理，不进行长期存储
-- **数据共享**: 数据仅用于提供 AI 命名服务，不与第三方共享（除了必要的 API 服务提供商）
+- **Data Collection**: We only collect and process data necessary to provide services (Figma element information)
+- **Data Storage**: Data is temporarily processed during API calls and is not stored long-term
+- **Data Sharing**: Data is only used to provide AI naming services and is not shared with third parties (except for necessary API service providers)
 
-### 服务范围
+### Service Scope
 
-我们的服务范围相对有限：
+Our service scope is relatively limited:
 
-- **功能**: 提供 AI 驱动的 Figma 元素命名建议
-- **数据处理**: 临时处理 Figma 设计元素信息
-- **不涉及**: 不处理支付信息、个人身份信息（PII）或健康信息
+- **Functionality**: Provide AI-powered naming suggestions for Figma elements
+- **Data Processing**: Temporarily process Figma design element information
+- **Not Involved**: We do not process payment information, personally identifiable information (PII), or health information
 
-## 持续改进
+## Continuous Improvement
 
-我们致力于持续改进安全实践：
+We are committed to continuously improving security practices:
 
-1. **定期审查**: 定期审查和更新安全措施
-2. **安全培训**: 团队持续学习安全最佳实践
-3. **漏洞管理**: 积极响应和处理安全漏洞报告
-4. **标准对齐**: 逐步对齐行业安全标准要求
+1. **Regular Review**: Regularly review and update security measures
+2. **Security Training**: Team continuously learns security best practices
+3. **Vulnerability Management**: Actively respond to and handle security vulnerability reports
+4. **Standards Alignment**: Gradually align with industry security standard requirements
 
-## 透明度承诺
+## Transparency Commitment
 
-我们承诺：
+We commit to:
 
-- **诚实披露**: 如实说明当前的安全认证状态
-- **持续改进**: 持续改进安全实践
-- **开放沟通**: 通过安全邮箱（3090699578xx@gmail.com）接受安全相关咨询和报告
+- **Honest Disclosure**: Truthfully state the current security certification status
+- **Continuous Improvement**: Continuously improve security practices
+- **Open Communication**: Accept security-related inquiries and reports through security email (3090699578xx@gmail.com)
 
-## 未来计划
+## Future Plans
 
-根据业务发展需要，我们计划：
+Based on business development needs, we plan to:
 
-1. **短期（6-12 个月）**:
-   - 完善安全文档和流程
-   - 实施更严格的安全监控
-   - 定期进行安全审计
+1. **Short-term (6-12 months)**:
+   - Improve security documentation and processes
+   - Implement stricter security monitoring
+   - Conduct regular security audits
 
-2. **中期（1-2 年）**:
-   - 评估获取 ISO 27001 认证的可行性
-   - 考虑进行 SOC 2 Type I 审计
+2. **Medium-term (1-2 years)**:
+   - Evaluate the feasibility of obtaining ISO 27001 certification
+   - Consider conducting SOC 2 Type I audits
 
-3. **长期（2 年以上）**:
-   - 根据业务规模，考虑获取正式的安全认证
-   - 建立更完善的信息安全管理体系
+3. **Long-term (2+ years)**:
+   - Consider obtaining formal security certifications based on business scale
+   - Establish a more comprehensive Information Security Management System
 
-## 联系方式
+## Contact Information
 
-如有任何关于安全认证或安全实践的问题，请通过以下方式联系我们：
+For any questions about security certifications or security practices, please contact us through the following channels:
 
-- **安全邮箱**: 3090699578xx@gmail.com
-- **一般咨询**: 请通过 Figma 社区插件页面联系我们
+- **Security Email**: 3090699578xx@gmail.com
+- **General Inquiries**: Please contact us through the Figma Community plugin page
 
-## 更新日志
+## Changelog
 
-- **2025-11-11: 初始版本发布
+- **2025-11-11**: Initial version release
 
 ---
 
-**注意**: 本文档会定期更新以反映我们的安全实践和认证状态的任何变化。请定期查看以获取最新信息。
-
+**Note**: This document is regularly updated to reflect any changes in our security practices and certification status. Please check regularly for the latest information.

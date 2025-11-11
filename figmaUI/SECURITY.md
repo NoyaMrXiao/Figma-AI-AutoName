@@ -1,115 +1,114 @@
-# 安全漏洞管理流程
+# Security Vulnerability Management Process
 
-## 概述
+## Overview
 
-我们非常重视 AI Auto Naming Figma 插件及其后端服务的安全性。我们致力于维护一个安全、可靠的服务，并欢迎安全研究人员和社区成员负责任地报告安全漏洞。
+We take the security of the AI Auto Naming Figma plugin and its backend services very seriously. We are committed to maintaining a secure and reliable service, and we welcome security researchers and community members to responsibly report security vulnerabilities.
 
-## 安全联系信息
+## Security Contact Information
 
-**安全邮箱**: 3090699578xx@gmail.com
+**Security Email**: 3090699578xx@gmail.com
 
-如果您发现任何安全漏洞，请通过上述邮箱联系我们。我们承诺在收到报告后 48 小时内进行初步响应。
+If you discover any security vulnerabilities, please contact us through the email above. We commit to providing an initial response within 48 hours of receiving a report.
 
-## 漏洞报告流程
+## Vulnerability Reporting Process
 
-### 1. 报告方式
+### 1. Reporting Method
 
-请通过以下方式报告安全漏洞：
+Please report security vulnerabilities through the following channels:
 
-- **主要渠道**: 发送邮件至 3090699578xx@gmail.com
-- **邮件主题**: 请使用格式 `[Security Vulnerability] [严重程度] - [简要描述]`
-- **严重程度分类**:
-  - Critical（严重）
-  - High（高）
-  - Medium（中）
-  - Low（低）
+- **Primary Channel**: Send an email to 3090699578xx@gmail.com
+- **Email Subject**: Please use the format `[Security Vulnerability] [Severity] - [Brief Description]`
+- **Severity Classification**:
+  - Critical
+  - High
+  - Medium
+  - Low
 
-### 2. 报告内容
+### 2. Report Content
 
-请在报告中包含以下信息：
+Please include the following information in your report:
 
-- **漏洞描述**: 详细描述发现的安全问题
-- **影响范围**: 说明该漏洞可能影响的系统、数据或用户
-- **复现步骤**: 提供清晰的步骤以复现该漏洞（如适用）
-- **概念验证**: 如果可能，请提供概念验证代码或截图（请确保不会造成实际损害）
-- **建议修复方案**: 如果您有修复建议，欢迎提供
-- **您的联系信息**: 以便我们在需要时与您联系
+- **Vulnerability Description**: Detailed description of the security issue discovered
+- **Impact Scope**: Explanation of the systems, data, or users that may be affected by this vulnerability
+- **Reproduction Steps**: Clear steps to reproduce the vulnerability (if applicable)
+- **Proof of Concept**: If possible, please provide proof-of-concept code or screenshots (ensure it does not cause actual damage)
+- **Suggested Fix**: If you have suggestions for fixes, please provide them
+- **Your Contact Information**: So we can contact you if needed
 
-### 3. 响应时间承诺
+### 3. Response Time Commitment
 
-我们承诺按照以下时间表响应和处理安全漏洞：
+We commit to responding to and handling security vulnerabilities according to the following timeline:
 
-- **初步响应**: 48 小时内确认收到报告
-- **严重漏洞（Critical）**: 24 小时内开始调查，7 天内提供修复或缓解措施
-- **高危漏洞（High）**: 72 小时内开始调查，14 天内提供修复或缓解措施
-- **中危漏洞（Medium）**: 7 天内开始调查，30 天内提供修复或缓解措施
-- **低危漏洞（Low）**: 14 天内开始调查，60 天内提供修复或缓解措施
+- **Initial Response**: Confirmation of receipt within 48 hours
+- **Critical Vulnerabilities**: Investigation begins within 24 hours, fix or mitigation provided within 7 days
+- **High Severity Vulnerabilities**: Investigation begins within 72 hours, fix or mitigation provided within 14 days
+- **Medium Severity Vulnerabilities**: Investigation begins within 7 days, fix or mitigation provided within 30 days
+- **Low Severity Vulnerabilities**: Investigation begins within 14 days, fix or mitigation provided within 60 days
 
-### 4. 漏洞处理流程
+### 4. Vulnerability Handling Process
 
-1. **接收与确认**: 安全团队收到报告后，将在 48 小时内发送确认邮件
-2. **评估与分类**: 安全团队评估漏洞的严重程度和影响范围
-3. **调查与分析**: 技术团队深入调查漏洞的根本原因
-4. **修复开发**: 开发团队开发修复补丁或缓解措施
-5. **测试与验证**: 质量保证团队测试修复方案的有效性
-6. **部署与发布**: 将修复部署到生产环境
-7. **披露与致谢**: 在适当的时候公开披露漏洞信息（经报告者同意后），并致谢报告者
+1. **Receipt and Confirmation**: Security team will send a confirmation email within 48 hours of receiving the report
+2. **Assessment and Classification**: Security team evaluates the severity and impact scope of the vulnerability
+3. **Investigation and Analysis**: Technical team conducts in-depth investigation of the root cause
+4. **Fix Development**: Development team develops patches or mitigation measures
+5. **Testing and Verification**: Quality assurance team tests the effectiveness of the fix
+6. **Deployment and Release**: Deploy the fix to production environment
+7. **Disclosure and Acknowledgment**: Publicly disclose vulnerability information at an appropriate time (with reporter's consent) and acknowledge the reporter
 
-### 5. 负责任的披露
+### 5. Responsible Disclosure
 
-我们遵循负责任的披露原则：
+We follow responsible disclosure principles:
 
-- **保密期**: 在漏洞修复之前，我们不会公开披露漏洞详情
-- **协调披露**: 我们鼓励报告者在漏洞修复后再公开披露
-- **致谢**: 经报告者同意，我们会在安全公告中致谢报告者
-- **禁止恶意利用**: 请勿利用漏洞进行任何恶意活动，包括但不限于：
-  - 未经授权的数据访问
-  - 服务中断
-  - 数据泄露
-  - 任何可能对用户或系统造成损害的行为
+- **Confidentiality Period**: We will not publicly disclose vulnerability details before the fix is implemented
+- **Coordinated Disclosure**: We encourage reporters to disclose publicly after the vulnerability is fixed
+- **Acknowledgement**: With the reporter's consent, we will acknowledge the reporter in security advisories
+- **Prohibition of Malicious Exploitation**: Please do not exploit vulnerabilities for any malicious activities, including but not limited to:
+  - Unauthorized data access
+  - Service disruption
+  - Data breaches
+  - Any activities that may cause harm to users or systems
 
-### 6. 不在范围内的漏洞
+### 6. Out-of-Scope Vulnerabilities
 
-以下类型的漏洞通常不在我们的漏洞赏金计划范围内：
+The following types of vulnerabilities are typically not within the scope of our vulnerability reporting program:
 
-- 社会工程学攻击
-- 物理安全漏洞
-- 拒绝服务（DoS）攻击
-- 需要物理访问设备的漏洞
-- 已公开披露的漏洞（除非我们尚未修复）
-- 第三方服务或依赖库的漏洞（我们会尽快更新依赖）
+- Social engineering attacks
+- Physical security vulnerabilities
+- Denial of Service (DoS) attacks
+- Vulnerabilities requiring physical device access
+- Already publicly disclosed vulnerabilities (unless we have not yet fixed them)
+- Third-party service or dependency library vulnerabilities (we will update dependencies as soon as possible)
 
-### 7. 奖励与致谢
+### 7. Rewards and Acknowledgment
 
-虽然我们目前没有正式的漏洞赏金计划，但我们非常重视安全研究人员的贡献：
+Although we currently do not have a formal bug bounty program, we highly value the contributions of security researchers:
 
-- **公开致谢**: 经您同意，我们会在安全公告中公开致谢
-- **持续改进**: 您的报告帮助我们持续改进服务的安全性
+- **Public Acknowledgment**: With your consent, we will publicly acknowledge you in security advisories
+- **Continuous Improvement**: Your reports help us continuously improve the security of our services
 
-## 安全最佳实践
+## Security Best Practices
 
-我们持续实施以下安全措施：
+We continuously implement the following security measures:
 
-- **定期安全审计**: 定期审查代码和基础设施的安全性
-- **依赖更新**: 及时更新依赖库以修复已知漏洞
-- **安全编码实践**: 遵循安全编码最佳实践
-- **环境变量管理**: 敏感信息（如 API Key）通过环境变量管理，不提交到代码仓库
-- **请求验证**: 所有 API 请求都经过严格的参数验证
-- **CORS 配置**: 正确配置跨域资源共享（CORS）策略
-- **请求大小限制**: 设置合理的请求体大小限制以防止资源耗尽攻击
+- **Regular Security Audits**: Regularly review the security of code and infrastructure
+- **Dependency Updates**: Timely update dependency libraries to fix known vulnerabilities
+- **Secure Coding Practices**: Follow secure coding best practices
+- **Environment Variable Management**: Sensitive information (such as API Keys) is managed through environment variables and not committed to code repositories
+- **Request Validation**: All API requests undergo strict parameter validation
+- **CORS Configuration**: Properly configure Cross-Origin Resource Sharing (CORS) policies
+- **Request Size Limits**: Set reasonable request body size limits to prevent resource exhaustion attacks
 
-## 更新日志
+## Changelog
 
-- **2024-01-XX**: 初始版本发布
+- **2025-11-11**: Initial version release
 
-## 联系方式
+## Contact Information
 
-如有任何安全相关问题，请通过以下方式联系我们：
+For any security-related questions, please contact us through the following channels:
 
-- **安全邮箱**: security@ode.asia
-- **一般咨询**: 请通过 Figma 社区插件页面联系我们
+- **Security Email**: 3090699578xx@gmail.com
+- **General Inquiries**: Please contact us through the Figma Community plugin page
 
 ---
 
-**注意**: 本安全流程文档会定期更新。请定期查看以获取最新信息。
-
+**Note**: This security process document is regularly updated. Please check regularly for the latest information.
