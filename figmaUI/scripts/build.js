@@ -2,13 +2,9 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { config } from 'dotenv';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-// 加载环境变量
-config();
 
 // 读取HTML文件
 const htmlPath = path.join(__dirname, '..', 'assets', 'ui.html');
@@ -36,39 +32,6 @@ if (!fs.existsSync(jsPath)) {
 }
 
 let jsContent = fs.readFileSync(jsPath, 'utf-8');
-
-// 注入环境变量 OPENAI_API_KEY（如果存在）
-const openaiApiKey = process.env.OPENAI_API_KEY;
-if (openaiApiKey) {
-  // 在 IIFE 开始后注入环境变量
-  const iifePattern = /\(\(\)\s*=>\s*\{/;
-  const iifeMatch = jsContent.match(iifePattern);
-  
-  if (iifeMatch) {
-    const insertPos = iifeMatch.index + iifeMatch[0].length;
-    const before = jsContent.substring(0, insertPos);
-    const after = jsContent.substring(insertPos);
-    // 转义 API Key 中的特殊字符（用于双引号字符串）
-    const escapedKey = openaiApiKey
-      .replace(/\\/g, '\\\\')
-      .replace(/"/g, '\\"')
-      .replace(/\n/g, '\\n')
-      .replace(/\r/g, '\\r');
-    jsContent = before + `\n  const OPENAI_API_KEY = "${escapedKey}";` + after;
-    console.log('✅ OPENAI_API_KEY 已注入到代码中');
-  } else {
-    // 如果没有找到 IIFE，在文件开头添加
-    const escapedKey = openaiApiKey
-      .replace(/\\/g, '\\\\')
-      .replace(/"/g, '\\"')
-      .replace(/\n/g, '\\n')
-      .replace(/\r/g, '\\r');
-    jsContent = `const OPENAI_API_KEY = "${escapedKey}";\n${jsContent}`;
-    console.log('✅ OPENAI_API_KEY 已注入到代码中');
-  }
-} else {
-  console.warn('⚠️  OPENAI_API_KEY 环境变量未设置，将使用UI输入的API Key');
-}
 
 // 将HTML内容转义（用于模板字符串）
 const escapedHtml = htmlContent
